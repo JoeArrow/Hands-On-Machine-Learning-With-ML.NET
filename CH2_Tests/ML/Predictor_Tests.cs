@@ -6,8 +6,8 @@
 //
 #endregion
 
-using chapter02.Common;
 using chapter02.ML;
+using chapter02.Common;
 
 namespace Predictor_Tests
 {
@@ -19,13 +19,15 @@ namespace Predictor_Tests
     [TestClass]
     public class Predictor_Tests
     {
+        private readonly string cr = Environment.NewLine;
+
         public Predictor_Tests() { }
 
         [ClassInitialize()]
         public static void MyClassInitialize(TestContext testContext) 
         {
-            var modelFile = @"chapter2.mdl";
             var input = @".\Data\sampledata.csv";
+            var modelFile = Constants.MODEL_FILENAME;
 
             if(!File.Exists(modelFile))
             {
@@ -34,9 +36,16 @@ namespace Predictor_Tests
         }
 
         // ------------------------------------------------
+        // true = Negative
+        // false = Positive
 
         [TestMethod]
+        [DataRow("My fork was dirty", true)]
         [DataRow("They call that Food?", true)]
+        [DataRow("The wait was too long.", true)]
+        [DataRow("I would eat there again.", false)]
+        [DataRow("It smelled so good in there.", false)]
+        [DataRow("I can't believe how long we had to wait.", true)]
         public void Predict_Predictor(string input, bool expected)
         {
             // -------
@@ -52,7 +61,7 @@ namespace Predictor_Tests
             // ---
             // Log
 
-            Console.WriteLine(resp.ToString());
+            Console.WriteLine($"Input String: {input}{cr}{cr}{resp}");
 
             // ------
             // Assert

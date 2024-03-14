@@ -2916,7 +2916,7 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\E99965\\.nuget\\packages\\": {},
+    "C:\\Users\\Joe Arrowood\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
@@ -2925,14 +2925,14 @@
       "projectUniqueName": "C:\\_Usage\\_Source\\CSharp\\Downloads\\ML.NET\\CH2_Tests\\CH2_Tests.csproj",
       "projectName": "CH2_Tests",
       "projectPath": "C:\\_Usage\\_Source\\CSharp\\Downloads\\ML.NET\\CH2_Tests\\CH2_Tests.csproj",
-      "packagesPath": "C:\\Users\\E99965\\.nuget\\packages\\",
+      "packagesPath": "C:\\Users\\Joe Arrowood\\.nuget\\packages\\",
       "outputPath": "C:\\_Usage\\_Source\\CSharp\\Downloads\\ML.NET\\CH2_Tests\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\E99965\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Joe Arrowood\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -2941,12 +2941,8 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
-        "C:\\_Usage\\NugetFeed\\Microsoft.Net": {},
-        "D:\\NugetFeed": {},
-        "\\\\hq.aflac.com\\ntfs2\\ITAppSrv\\Nuget\\Microsoft.Net": {},
-        "https://api.nuget.org/v3/index.json": {},
-        "https://artifactory.aws.aflac.com/artifactory/api/nuget/nuget": {}
+        "C:\\_Usage\\JoeWareRepo": {},
+        "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net8.0": {
@@ -2962,6 +2958,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -3003,7 +3004,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.102/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

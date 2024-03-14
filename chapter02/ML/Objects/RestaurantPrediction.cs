@@ -1,7 +1,5 @@
 ﻿using System;
 
-using chapter02.Common;
-
 using Microsoft.ML.Data;
 
 namespace chapter02.ML.Objects
@@ -10,10 +8,10 @@ namespace chapter02.ML.Objects
     {
         private readonly string cr = Environment.NewLine;
 
+        public float Score { get; set; }
         [ColumnName("PredictedLabel")]
         public bool Prediction { get; set; }
         public float Probability { get; set; }
-        public float Score { get; set; }
 
         // ------------------------------------------------
 
@@ -21,9 +19,8 @@ namespace chapter02.ML.Objects
         {
             var sentiment = Prediction ? "Negative" : "Positive";
 
-            return $"Predicted Feedback: {sentiment}.{cr}" +
-                   $"With a confidence level of: {Probability:P0}.{cr}" +
-                   $"With a F1Score of: {Score:.###}.";
+            return $"Predicted Feedback:         {sentiment}.{cr}" +
+                   $"With a confidence level of:      {Probability:P0}.{cr}";
         }
     }
 }
