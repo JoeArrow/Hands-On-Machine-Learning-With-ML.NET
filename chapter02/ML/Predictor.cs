@@ -10,34 +10,38 @@ namespace chapter02.ML
 {
     public class Predictor : BaseML
     {
-        public void Predict(string inputData)
+        public RestaurantPrediction Predict(string inputData)
         {
-            if (!File.Exists(ModelPath))
+            RestaurantPrediction retVal = null;
+
+            if(!File.Exists(ModelPath))
             {
                 Console.WriteLine($"Failed to find model at {ModelPath}");
-
-                return;
+                return retVal;
             }
-
-            ITransformer mlModel;
-            
-            using (var stream = new FileStream(ModelPath, FileMode.Open, FileAccess.Read, FileShare.Read))
+            else
             {
-                mlModel = MlContext.Model.Load(stream, out _);
+                ITransformer mlModel;
+
+                using(var stream = new FileStream(ModelPath, FileMode.Open, FileAccess.Read, FileShare.Read))
+                {
+                    mlModel = MlContext.Model.Load(stream, out _);
+                }
+
+                if(mlModel == null)
+                {
+                    Console.WriteLine("Failed to load model");
+                    return retVal;
+                }
+                else
+                {
+                    var predictionEngine = MlContext.Model.CreatePredictionEngine<RestaurantFeedback, RestaurantPrediction>(mlModel);
+
+                    retVal = predictionEngine.Predict(new RestaurantFeedback { Text = inputData });
+                }
             }
 
-            if (mlModel == null)
-            {
-                Console.WriteLine("Failed to load model");
-
-                return;
-            }
-
-            var predictionEngine = MlContext.Model.CreatePredictionEngine<RestaurantFeedback, RestaurantPrediction>(mlModel);
-
-            var prediction = predictionEngine.Predict(new RestaurantFeedback { Text = inputData });
-
-            Console.WriteLine($"Based on \"{inputData}\", the feedback is predicted to be:{Environment.NewLine}{(prediction.Prediction ? "Negative" : "Positive")} at a {prediction.Probability:P0} confidence");
+            return retVal;
         }
     }
 }

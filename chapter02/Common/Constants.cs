@@ -1,4 +1,6 @@
-﻿namespace chapter02.Common
+﻿using System;
+
+namespace chapter02.Common
 {
     public class Constants
     {

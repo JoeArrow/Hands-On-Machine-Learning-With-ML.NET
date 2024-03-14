@@ -9,6 +9,8 @@ namespace chapter02.ML.Base
 {
     public class BaseML
     {
+        protected readonly string cr = Environment.NewLine;
+
         protected static string ModelPath => Path.Combine(AppContext.BaseDirectory, Constants.MODEL_FILENAME);
 
         protected readonly MLContext MlContext;

@@ -14,7 +14,6 @@ namespace chapter02
                                   $"predict <sentence of text to predict against>{Environment.NewLine}" +
                                   $"or {Environment.NewLine}" +
                                   $"train <path to training data file>{Environment.NewLine}");
-
                 return;
             }
 

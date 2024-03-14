@@ -1,4 +1,6 @@
-﻿using Microsoft.ML.Data;
+﻿using chapter02.Common;
+
+using Microsoft.ML.Data;
 
 namespace chapter02.ML.Objects
 {
