@@ -42,14 +42,10 @@ namespace Predictor_Tests
         [TestMethod]
         [DataRow("My fork was dirty", true)]
         [DataRow("They call that Food?", true)]
-<<<<<<< HEAD
-        [DataRow("I would eat there again.", false)]
-=======
         [DataRow("The wait was too long.", true)]
         [DataRow("I would eat there again.", false)]
         [DataRow("It smelled so good in there.", false)]
         [DataRow("I can't believe how long we had to wait.", true)]
->>>>>>> 27581bfd44d2484faa862aaa0fcbeb4aa42e7f12
         public void Predict_Predictor(string input, bool expected)
         {
             // -------
