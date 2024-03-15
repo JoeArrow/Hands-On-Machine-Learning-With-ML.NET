@@ -41,7 +41,7 @@ namespace chapter02.ML
 
             var trainingPipeline = dataProcessPipeline.Append(sdcaRegressionTrainer);
 
-            ITransformer trainedModel = trainingPipeline.Fit(dataSplit.TrainSet);
+            var trainedModel = trainingPipeline.Fit(dataSplit.TrainSet);
 
             MlContext.Model.Save(trainedModel, dataSplit.TrainSet.Schema, ModelPath);
 
