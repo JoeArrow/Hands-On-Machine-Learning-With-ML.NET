@@ -24,8 +24,8 @@ namespace Predictor_Tests
         [ClassInitialize()]
         public static void MyClassInitialize(TestContext testContext) 
         {
-            var modelFile = @"chapter2.mdl";
             var input = @".\Data\sampledata.csv";
+            var modelFile = Constants.MODEL_FILENAME;
 
             if(!File.Exists(modelFile))
             {
@@ -37,6 +37,7 @@ namespace Predictor_Tests
 
         [TestMethod]
         [DataRow("They call that Food?", true)]
+        [DataRow("I would eat there again.", false)]
         public void Predict_Predictor(string input, bool expected)
         {
             // -------

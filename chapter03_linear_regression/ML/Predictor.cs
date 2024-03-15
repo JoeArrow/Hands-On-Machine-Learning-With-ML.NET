@@ -12,46 +12,50 @@ namespace chapter03.ML
 {
     public class Predictor : BaseML
     {
-        public void Predict(string inputDataFile)
+        public EmploymentHistoryPrediction Predict(string inputDataFile)
         {
-            if (!File.Exists(ModelPath))
+            var retVal = null as EmploymentHistoryPrediction;
+
+            if(!File.Exists(ModelPath))
             {
                 Console.WriteLine($"Failed to find model at {ModelPath}");
-
-                return;
             }
-
-            if (!File.Exists(inputDataFile))
+            else
             {
-                Console.WriteLine($"Failed to find input data at {inputDataFile}");
+                if(!File.Exists(inputDataFile))
+                {
+                    Console.WriteLine($"Failed to find input data at {inputDataFile}");
+                }
+                else
+                {
+                    ITransformer mlModel;
 
-                return;
+                    using(var stream = new FileStream(ModelPath, FileMode.Open, FileAccess.Read, FileShare.Read))
+                    {
+                        mlModel = MlContext.Model.Load(stream, out _);
+                    }
+
+                    if(mlModel == null)
+                    {
+                        Console.WriteLine("Failed to load model");
+                    }
+                    else
+                    {
+                        var predictionEngine = MlContext.Model.CreatePredictionEngine<EmploymentHistory, EmploymentHistoryPrediction>(mlModel);
+
+                        var json = File.ReadAllText(inputDataFile);
+
+                        retVal = predictionEngine.Predict(JsonConvert.DeserializeObject<EmploymentHistory>(json));
+
+                        //Console.WriteLine(
+                        //                    $"Based on input json:{Environment.NewLine}" +
+                        //                    $"{json}{Environment.NewLine}" +
+                        //                    $"The employee is predicted to work {retVal.DurationInMonths:#.##} months");
+                    }
+                }
             }
 
-            ITransformer mlModel;
-            
-            using (var stream = new FileStream(ModelPath, FileMode.Open, FileAccess.Read, FileShare.Read))
-            {
-                mlModel = MlContext.Model.Load(stream, out _);
-            }
-
-            if (mlModel == null)
-            {
-                Console.WriteLine("Failed to load model");
-
-                return;
-            }
-
-            var predictionEngine = MlContext.Model.CreatePredictionEngine<EmploymentHistory, EmploymentHistoryPrediction>(mlModel);
-
-            var json = File.ReadAllText(inputDataFile);
-
-            var prediction = predictionEngine.Predict(JsonConvert.DeserializeObject<EmploymentHistory>(json));
-
-            Console.WriteLine(
-                                $"Based on input json:{System.Environment.NewLine}" +
-                                $"{json}{System.Environment.NewLine}" + 
-                                $"The employee is predicted to work {prediction.DurationInMonths:#.##} months");
+            return retVal;
         }
     }
 }

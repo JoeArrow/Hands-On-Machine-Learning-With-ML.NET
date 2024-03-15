@@ -3,7 +3,6 @@ using System.IO;
 
 using chapter02.ML.Base;
 using chapter02.ML.Objects;
-using chapter02.Extensions;
 
 using Microsoft.ML;
 using Microsoft.ML.Data;
@@ -51,8 +50,6 @@ namespace chapter02.ML
             retVal = MlContext.BinaryClassification.Evaluate(data: testSetTransform, 
                                                              labelColumnName: nameof(RestaurantFeedback.Label), 
                                                              scoreColumnName: nameof(RestaurantPrediction.Score));
-            Console.WriteLine(retVal.Stats());
-
             return retVal;
         }
     }

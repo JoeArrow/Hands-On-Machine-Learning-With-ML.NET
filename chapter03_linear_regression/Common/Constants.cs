@@ -2,6 +2,6 @@
 {
     public class Constants
     {
-        public const string MODEL_FILENAME = "chapter3.mdl";
+        public const string MODEL_FILENAME = "chapter03.mdl";
     }
 }
