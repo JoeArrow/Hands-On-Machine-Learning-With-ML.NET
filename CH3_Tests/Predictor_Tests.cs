@@ -36,21 +36,56 @@ namespace Predictor_Tests
         // ------------------------------------------------
 
         [TestMethod]
-        [DataRow(@".\Data\sampledata.json")]
-        public void Method_Class(string input)
+        [DataRow(@".\Data\_InputData.json",
+                 "{'DurationInMonths':245," +
+                  "'IsMarried':1," +
+                  "'BSDegree':0," +
+                  "'MSDegree':0," +
+                  "'YearsExperience':30," +
+                  "'AgeAtHire':33," +
+                  "'HasKids':1," +
+                  "'WithinMonthOfVesting':0," +
+                  "'DeskDecorations':0," +
+                  "'LongCommute':1}")]
+        
+        [DataRow(@".\Data\_InputData.json",
+                 "{'DurationInMonths':2," +
+                  "'IsMarried':1," +
+                  "'BSDegree':1," +
+                  "'MSDegree':1," +
+                  "'YearsExperience':0," +
+                  "'AgeAtHire':33," +
+                  "'HasKids':0," +
+                  "'WithinMonthOfVesting':6," +
+                  "'DeskDecorations':0," +
+                  "'LongCommute':1}")]
+        public void Method_Class(string output, string input)
         {
             // -------
             // Arrange
 
             var sut = new Predictor();
+            //File.WriteAllText(output, input);
 
             // ---
             // Act
 
             var resp = sut.Predict(input);
 
+            // ---
+            // Log
+
+            Console.WriteLine(resp.Message);
+
             // ------
             // Assert
+
+            Assert.IsTrue(resp.Success);
+
+            // -------
+            // Cleanup
+
+            //if(File.Exists(output)) { File.Delete(output); }
         }
     }
 }

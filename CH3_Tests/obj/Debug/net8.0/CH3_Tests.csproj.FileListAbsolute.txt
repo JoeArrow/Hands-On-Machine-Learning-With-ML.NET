@@ -259,7 +259,6 @@ F:\_Usage\_Source\CSharp\Downloads\ML.NET\CH3_Tests\obj\Debug\net8.0\CH3_Tests.A
 F:\_Usage\_Source\CSharp\Downloads\ML.NET\CH3_Tests\obj\Debug\net8.0\CH3_Tests.AssemblyInfo.cs
 F:\_Usage\_Source\CSharp\Downloads\ML.NET\CH3_Tests\obj\Debug\net8.0\CH3_Tests.csproj.CoreCompileInputs.cache
 F:\_Usage\_Source\CSharp\Downloads\ML.NET\CH3_Tests\obj\Debug\net8.0\CH3_Tests.sourcelink.json
-F:\_Usage\_Source\CSharp\Downloads\ML.NET\CH3_Tests\obj\Debug\net8.0\CH3_Tests.csproj.CopyComplete
 F:\_Usage\_Source\CSharp\Downloads\ML.NET\CH3_Tests\obj\Debug\net8.0\CH3_Tests.dll
 F:\_Usage\_Source\CSharp\Downloads\ML.NET\CH3_Tests\obj\Debug\net8.0\refint\CH3_Tests.dll
 F:\_Usage\_Source\CSharp\Downloads\ML.NET\CH3_Tests\obj\Debug\net8.0\CH3_Tests.pdb
@@ -331,3 +330,4 @@ F:\_Usage\_Source\CSharp\Downloads\ML.NET\CH3_Tests\bin\Debug\net8.0\zh-Hans\Mic
 F:\_Usage\_Source\CSharp\Downloads\ML.NET\CH3_Tests\bin\Debug\net8.0\zh-Hant\Microsoft.Testing.Platform.MSBuild.resources.dll
 F:\_Usage\_Source\CSharp\Downloads\ML.NET\CH3_Tests\bin\Debug\net8.0\Data\sampledata.xlsx
 F:\_Usage\_Source\CSharp\Downloads\ML.NET\CH3_Tests\bin\Debug\net8.0\Data\sampledata.json
+F:\_Usage\_Source\CSharp\Downloads\ML.NET\CH3_Tests\obj\Debug\net8.0\CH3_Tests.csproj.Up2Date

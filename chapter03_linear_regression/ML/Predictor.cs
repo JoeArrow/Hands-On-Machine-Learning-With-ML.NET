@@ -1,54 +1,59 @@
 ﻿using System;
 using System.IO;
 
+using Microsoft.ML;
+
 using chapter03.ML.Base;
 using chapter03.ML.Objects;
 
-using Microsoft.ML;
-
+using jsSer = System.Text.Json.JsonSerializer;
 using Newtonsoft.Json;
 
 namespace chapter03.ML
 {
     public class Predictor : BaseML
     {
-        public EmploymentHistoryPrediction Predict(string inputDataFile)
+        public EmploymentHistoryPrediction Predict(string json)
         {
-            var retVal = null as EmploymentHistoryPrediction;
+            var retVal = new EmploymentHistoryPrediction();
 
             if(!File.Exists(ModelPath))
             {
-                Console.WriteLine($"Failed to find model at {ModelPath}");
+                retVal.Success = false;
+                retVal.Message = $"Failed to find model at {ModelPath}";
             }
             else
             {
-                if(!File.Exists(inputDataFile))
+                ITransformer mlModel;
+
+                using(var stream = new FileStream(ModelPath, FileMode.Open, FileAccess.Read, FileShare.Read))
                 {
-                    Console.WriteLine($"Failed to find input data at {inputDataFile}");
+                    mlModel = MlContext.Model.Load(stream, out _);
+                }
+
+                if(mlModel == null)
+                {
+                    Console.WriteLine("Failed to load model");
                 }
                 else
                 {
-                    ITransformer mlModel;
+                    var predictionEngine = MlContext.Model.CreatePredictionEngine<EmploymentHistory, EmploymentHistoryPrediction>(mlModel);
 
-                    using(var stream = new FileStream(ModelPath, FileMode.Open, FileAccess.Read, FileShare.Read))
+                    retVal = predictionEngine.Predict(jsSer.Deserialize<EmploymentHistory>(json));
+
+                    if(retVal.DurationInMonths < 0f)
                     {
-                        mlModel = MlContext.Model.Load(stream, out _);
+                        retVal.DurationInMonths = .5f;
                     }
 
-                    if(mlModel == null)
+                    retVal.Success = true;
+                    retVal.Message = $"Based on input json:{cr}{cr}{json}{cr}{cr}" +
+                                        $"The employee is predicted to remain in the current job for {retVal.DurationInMonths:#.##} months.{cr}" +
+                                        $"Or {retVal.DurationInMonths / 12:#.##} more years...";
+                        
+                    if(retVal.DurationInMonths < 6f)
                     {
-                        Console.WriteLine("Failed to load model");
-                    }
-                    else
-                    {
-                        var predictionEngine = MlContext.Model.CreatePredictionEngine<EmploymentHistory, EmploymentHistoryPrediction>(mlModel);
-
-                        var json = File.ReadAllText(inputDataFile);
-
-                        retVal = predictionEngine.Predict(JsonConvert.DeserializeObject<EmploymentHistory>(json));
-
-                        Console.WriteLine($"Based on input json:{cr}{json}{cr}" +
-                                          $"The employee is predicted to work {retVal.DurationInMonths:#.##} months");
+                        retVal.Message += $"{cr}{cr}We may need to start looking for a replacement, immediately!";
                     }
                 }
             }

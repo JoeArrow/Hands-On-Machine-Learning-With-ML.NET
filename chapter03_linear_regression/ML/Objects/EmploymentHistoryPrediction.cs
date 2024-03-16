@@ -6,5 +6,8 @@ namespace chapter03.ML.Objects
     {
         [ColumnName("Score")]
         public float DurationInMonths;
+
+        public bool Success { set; get; }
+        public string Message { set; get; }
     }
 }
