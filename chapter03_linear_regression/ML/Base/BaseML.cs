@@ -9,9 +9,11 @@ namespace chapter03.ML.Base
 {
     public class BaseML
     {
-        protected static string ModelPath => Path.Combine(AppContext.BaseDirectory, Constants.MODEL_FILENAME);
-
         protected readonly MLContext MlContext;
+        protected readonly string cr = Environment.NewLine;
+        protected readonly string crt = Environment.NewLine + "\t";
+
+        protected static string ModelPath => Path.Combine(AppContext.BaseDirectory, Constants.MODEL_FILENAME);
 
         protected BaseML()
         {
