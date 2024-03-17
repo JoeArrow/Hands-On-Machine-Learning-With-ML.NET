@@ -36,8 +36,7 @@ namespace Predictor_Tests
         // ------------------------------------------------
 
         [TestMethod]
-        [DataRow(@".\Data\_InputData.json",
-                 "{'DurationInMonths':245," +
+        [DataRow("{'DurationInMonths':245," +
                   "'IsMarried':1," +
                   "'BSDegree':0," +
                   "'MSDegree':0," +
@@ -48,8 +47,7 @@ namespace Predictor_Tests
                   "'DeskDecorations':0," +
                   "'LongCommute':1}")]
         
-        [DataRow(@".\Data\_InputData.json",
-                 "{'DurationInMonths':2," +
+        [DataRow("{'DurationInMonths':2," +
                   "'IsMarried':1," +
                   "'BSDegree':1," +
                   "'MSDegree':1," +
@@ -59,7 +57,7 @@ namespace Predictor_Tests
                   "'WithinMonthOfVesting':6," +
                   "'DeskDecorations':0," +
                   "'LongCommute':1}")]
-        public void Method_Class(string output, string input)
+        public void Method_Class(string input)
         {
             // -------
             // Arrange

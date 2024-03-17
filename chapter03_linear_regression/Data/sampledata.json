@@ -1,26 +1,12 @@
-﻿[
-    {
-        "DurationInMonths": 245,
-        "IsMarried": 1,
-        "BSDegree": 0,
-        "MSDegree": 0,
-        "YearsExperience": 30,
-        "AgeAtHire": 33,
-        "HasKids": 1,
-        "WithinMonthOfVesting": 0,
-        "DeskDecorations": 0,
-        "LongCommute": 1
-    },
-    {
-        "DurationInMonths": 245,
-        "IsMarried": 1,
-        "BSDegree": 0,
-        "MSDegree": 0,
-        "YearsExperience": 30,
-        "AgeAtHire": 33,
-        "HasKids": 1,
-        "WithinMonthOfVesting": 0,
-        "DeskDecorations": 0,
-        "LongCommute": 1
-    }
-]
+﻿{
+    "DurationInMonths": 245,
+    "IsMarried": 1,
+    "BSDegree": 0,
+    "MSDegree": 0,
+    "YearsExperience": 30,
+    "AgeAtHire": 33,
+    "HasKids": 1,
+    "WithinMonthOfVesting": 0,
+    "DeskDecorations": 0,
+    "LongCommute": 1
+}
