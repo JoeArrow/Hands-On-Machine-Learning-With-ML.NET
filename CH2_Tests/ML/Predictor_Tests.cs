@@ -68,5 +68,35 @@ namespace Predictor_Tests
 
             Assert.AreEqual(expected, resp.Prediction);
         }
+
+        // ------------------------------------------------
+
+        private void Retrain(string input, bool sentiment)
+        {
+            var sent = sentiment ? 0 : 1;
+            var modelFile = Constants.MODEL_FILENAME;
+            var stream = File.AppendText(INPUT_FILE);
+
+            // ------------------------------------
+            // Add the failed test to the test data
+
+            stream.WriteLine($"{cr}{sent},\"{input}\"");
+            stream.Close();
+
+            // --------------------
+            // Remove the old model
+
+            if(File.Exists(modelFile))
+            {
+                File.Delete(modelFile);
+            }
+
+            Console.WriteLine("Retraining...");
+
+            // -----------------
+            // Retrain the model
+
+            new Trainer().Train(input);
+        }
     }
 }
