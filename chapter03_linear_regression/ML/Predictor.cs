@@ -7,7 +7,6 @@ using chapter03.ML.Base;
 using chapter03.ML.Objects;
 
 using jsSer = System.Text.Json.JsonSerializer;
-using Newtonsoft.Json;
 
 namespace chapter03.ML
 {

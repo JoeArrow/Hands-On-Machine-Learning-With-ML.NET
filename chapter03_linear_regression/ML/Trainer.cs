@@ -8,6 +8,8 @@ using chapter03.ML.Objects;
 using Microsoft.ML;
 using Microsoft.ML.Data;
 
+using jsSer = System.Text.Json.JsonSerializer;
+
 namespace chapter03.ML
 {
     public class Trainer : BaseML

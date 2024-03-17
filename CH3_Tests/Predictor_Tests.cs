@@ -65,12 +65,11 @@ namespace Predictor_Tests
             // Arrange
 
             var sut = new Predictor();
-            //File.WriteAllText(output, input);
 
             // ---
             // Act
 
-            var resp = sut.Predict(input);
+            var resp = sut.Predict(input.Replace('\'', '\"'));
 
             // ---
             // Log
@@ -81,11 +80,6 @@ namespace Predictor_Tests
             // Assert
 
             Assert.IsTrue(resp.Success);
-
-            // -------
-            // Cleanup
-
-            //if(File.Exists(output)) { File.Delete(output); }
         }
     }
 }
