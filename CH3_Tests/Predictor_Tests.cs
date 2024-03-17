@@ -8,6 +8,7 @@
 
 using chapter03.ML;
 using chapter03.Common;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Predictor_Tests
 {
@@ -19,7 +20,11 @@ namespace Predictor_Tests
     [TestClass]
     public class Predictor_Tests
     {
+        public TestContext? TestContext { get; set; }
+
         public Predictor_Tests() { }
+
+        // ------------------------------------------------
 
         [ClassInitialize()]
         public static void MyClassInitialize(TestContext testContext)
@@ -68,6 +73,10 @@ namespace Predictor_Tests
             // Act
 
             var resp = sut.Predict(input.Replace('\'', '\"'));
+            var inputFilePath = $@"{Constants.SOLUTION_FOLDER}\sampledata.csv";
+
+            var content = File.ReadAllText(inputFilePath);
+            Console.WriteLine(content);
 
             // ---
             // Log
