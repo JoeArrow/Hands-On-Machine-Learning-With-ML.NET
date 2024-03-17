@@ -12,12 +12,11 @@ namespace chapter02.ML
     {
         public RestaurantPrediction Predict(string inputData)
         {
-            RestaurantPrediction retVal = null;
+            var retVal = new RestaurantPrediction();
 
             if(!File.Exists(ModelPath))
             {
-                Console.WriteLine($"Failed to find model at {ModelPath}");
-                return retVal;
+                retVal.Success = false;
             }
             else
             {
@@ -30,14 +29,14 @@ namespace chapter02.ML
 
                 if(mlModel == null)
                 {
-                    Console.WriteLine("Failed to load model");
-                    return retVal;
+                    retVal.Success = false;
                 }
                 else
                 {
                     var predictionEngine = MlContext.Model.CreatePredictionEngine<RestaurantFeedback, RestaurantPrediction>(mlModel);
 
                     retVal = predictionEngine.Predict(new RestaurantFeedback { Text = inputData });
+                    retVal.Success = true;
                 }
             }
 

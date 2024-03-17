@@ -9,6 +9,7 @@ namespace chapter02.ML.Objects
         private readonly string cr = Environment.NewLine;
 
         public float Score { get; set; }
+        public bool Success { set; get; }
 
         [ColumnName("PredictedLabel")]
         public bool Prediction { get; set; }
