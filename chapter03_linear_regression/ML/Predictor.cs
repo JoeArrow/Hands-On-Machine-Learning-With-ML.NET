@@ -47,10 +47,8 @@ namespace chapter03.ML
 
                         retVal = predictionEngine.Predict(JsonConvert.DeserializeObject<EmploymentHistory>(json));
 
-                        //Console.WriteLine(
-                        //                    $"Based on input json:{Environment.NewLine}" +
-                        //                    $"{json}{Environment.NewLine}" +
-                        //                    $"The employee is predicted to work {retVal.DurationInMonths:#.##} months");
+                        Console.WriteLine($"Based on input json:{cr}{json}{cr}" +
+                                          $"The employee is predicted to work {retVal.DurationInMonths:#.##} months");
                     }
                 }
             }

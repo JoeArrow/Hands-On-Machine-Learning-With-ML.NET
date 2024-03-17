@@ -14,7 +14,13 @@ namespace chapter03.ML
     {
         public RegressionMetrics Train(string trainingFileName)
         {
+            // --------------------------------------
+            // RegressionMetrics is defined in ML.NET
+
             var retVal = null as RegressionMetrics;
+
+            // ------------------------------
+            // Verify that we have input data
 
             if(!File.Exists(trainingFileName))
             {
@@ -23,6 +29,9 @@ namespace chapter03.ML
             }
             else
             {
+                // ------------------------------
+                // IDataView is defined in ML.NET
+
                 var trainingDataView = MlContext.Data.LoadFromTextFile<EmploymentHistory>(trainingFileName, ',');
 
                 var dataSplit = MlContext.Data.TrainTestSplit(trainingDataView, testFraction: 0.4);
@@ -44,6 +53,9 @@ namespace chapter03.ML
 
                 var trainingPipeline = dataProcessPipeline.Append(trainer);
 
+                // ---------------
+                // Train the model
+
                 ITransformer trainedModel = trainingPipeline.Fit(dataSplit.TrainSet);
                 MlContext.Model.Save(trainedModel, dataSplit.TrainSet.Schema, ModelPath);
 
@@ -51,11 +63,13 @@ namespace chapter03.ML
 
                 retVal = MlContext.Regression.Evaluate(testSetTransform);
 
-                Console.WriteLine($"Loss Function: {retVal.LossFunction:0.##}{Environment.NewLine}" +
-                                  $"Mean Absolute Error: {retVal.MeanAbsoluteError:#.##}{Environment.NewLine}" +
-                                  $"Mean Squared Error: {retVal.MeanSquaredError:#.##}{Environment.NewLine}" +
-                                  $"RSquared: {retVal.RSquared:0.##}{Environment.NewLine}" +
-                                  $"Root Mean Squared Error: {retVal.RootMeanSquaredError:#.##}");
+                Console.WriteLine($"{cr}Training Function:{cr}{new string('-', 20)}{crt}" +
+                                  $"Loss Function: {retVal.LossFunction:0.##}{crt}" +
+                                  $"Mean Absolute Error: {retVal.MeanAbsoluteError:#.##}{crt}" +
+                                  $"Mean Squared Error: {retVal.MeanSquaredError:#.##}{crt}" +
+                                  $"RSquared: {retVal.RSquared:0.##}{crt}" +
+                                  $"Root Mean Squared Error: {retVal.RootMeanSquaredError:#.##}{cr}" +
+                                  new string('-', 50));
             }
 
             return retVal;

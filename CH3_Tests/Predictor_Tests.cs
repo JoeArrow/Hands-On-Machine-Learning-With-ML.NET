@@ -36,8 +36,8 @@ namespace Predictor_Tests
         // ------------------------------------------------
 
         [TestMethod]
-        [DataRow("")]
-        public void Method_Class(string expected)
+        [DataRow(@".\Data\sampledata.json")]
+        public void Method_Class(string input)
         {
             // -------
             // Arrange
@@ -46,6 +46,8 @@ namespace Predictor_Tests
 
             // ---
             // Act
+
+            var resp = sut.Predict(input);
 
             // ------
             // Assert
