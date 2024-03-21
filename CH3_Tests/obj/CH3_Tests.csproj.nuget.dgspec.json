@@ -1,24 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "F:\\_Usage\\_Source\\CSharp\\Downloads\\ML.NET\\CH3_Tests\\CH3_Tests.csproj": {}
+    "C:\\_Usage\\_Source\\CSharp\\Downloads\\ML.NET\\CH3_Tests\\CH3_Tests.csproj": {}
   },
   "projects": {
-    "F:\\_Usage\\_Source\\CSharp\\Downloads\\ML.NET\\CH3_Tests\\CH3_Tests.csproj": {
+    "C:\\_Usage\\_Source\\CSharp\\Downloads\\ML.NET\\CH3_Tests\\CH3_Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\_Usage\\_Source\\CSharp\\Downloads\\ML.NET\\CH3_Tests\\CH3_Tests.csproj",
+        "projectUniqueName": "C:\\_Usage\\_Source\\CSharp\\Downloads\\ML.NET\\CH3_Tests\\CH3_Tests.csproj",
         "projectName": "CH3_Tests",
-        "projectPath": "F:\\_Usage\\_Source\\CSharp\\Downloads\\ML.NET\\CH3_Tests\\CH3_Tests.csproj",
-        "packagesPath": "C:\\Users\\jarro\\.nuget\\packages\\",
-        "outputPath": "F:\\_Usage\\_Source\\CSharp\\Downloads\\ML.NET\\CH3_Tests\\obj\\",
+        "projectPath": "C:\\_Usage\\_Source\\CSharp\\Downloads\\ML.NET\\CH3_Tests\\CH3_Tests.csproj",
+        "packagesPath": "C:\\Users\\Joe Arrowood\\.nuget\\packages\\",
+        "outputPath": "C:\\_Usage\\_Source\\CSharp\\Downloads\\ML.NET\\CH3_Tests\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\jarro\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Joe Arrowood\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -27,15 +26,15 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "F:\\_Usage\\NuGetFeed": {},
+          "C:\\_Usage\\JoeWareRepo": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "F:\\_Usage\\_Source\\CSharp\\Downloads\\ML.NET\\chapter03_linear_regression\\chapter03.csproj": {
-                "projectPath": "F:\\_Usage\\_Source\\CSharp\\Downloads\\ML.NET\\chapter03_linear_regression\\chapter03.csproj"
+              "C:\\_Usage\\_Source\\CSharp\\Downloads\\ML.NET\\chapter03_linear_regression\\chapter03.csproj": {
+                "projectPath": "C:\\_Usage\\_Source\\CSharp\\Downloads\\ML.NET\\chapter03_linear_regression\\chapter03.csproj"
               }
             }
           }
@@ -44,6 +43,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -85,25 +89,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.102/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "F:\\_Usage\\_Source\\CSharp\\Downloads\\ML.NET\\chapter03_linear_regression\\chapter03.csproj": {
+    "C:\\_Usage\\_Source\\CSharp\\Downloads\\ML.NET\\chapter03_linear_regression\\chapter03.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\_Usage\\_Source\\CSharp\\Downloads\\ML.NET\\chapter03_linear_regression\\chapter03.csproj",
+        "projectUniqueName": "C:\\_Usage\\_Source\\CSharp\\Downloads\\ML.NET\\chapter03_linear_regression\\chapter03.csproj",
         "projectName": "chapter03",
-        "projectPath": "F:\\_Usage\\_Source\\CSharp\\Downloads\\ML.NET\\chapter03_linear_regression\\chapter03.csproj",
-        "packagesPath": "C:\\Users\\jarro\\.nuget\\packages\\",
-        "outputPath": "F:\\_Usage\\_Source\\CSharp\\Downloads\\ML.NET\\chapter03_linear_regression\\obj\\",
+        "projectPath": "C:\\_Usage\\_Source\\CSharp\\Downloads\\ML.NET\\chapter03_linear_regression\\chapter03.csproj",
+        "packagesPath": "C:\\Users\\Joe Arrowood\\.nuget\\packages\\",
+        "outputPath": "C:\\_Usage\\_Source\\CSharp\\Downloads\\ML.NET\\chapter03_linear_regression\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\jarro\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Joe Arrowood\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -112,7 +115,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "F:\\_Usage\\NuGetFeed": {},
+          "C:\\_Usage\\JoeWareRepo": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -125,6 +128,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -156,7 +164,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.102/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

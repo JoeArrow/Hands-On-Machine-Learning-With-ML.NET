@@ -46,8 +46,8 @@ namespace chapter03.ML
                     .Append(MlContext.Transforms.NormalizeMeanVariance(nameof(EmploymentHistory.WithinMonthOfVesting)))
                     .Append(MlContext.Transforms.NormalizeMeanVariance(nameof(EmploymentHistory.DeskDecorations)))
                     .Append(MlContext.Transforms.NormalizeMeanVariance(nameof(EmploymentHistory.LongCommute)))
-                    .Append(MlContext.Transforms.Concatenate("Features",
-                        typeof(EmploymentHistory).ToPropertyList<EmploymentHistory>(nameof(EmploymentHistory.DurationInMonths)))));
+                    .Append(MlContext.Transforms.Concatenate("Features",typeof(EmploymentHistory)
+                    .ToPropertyList<EmploymentHistory>(nameof(EmploymentHistory.DurationInMonths)))));
 
                 var trainer = MlContext.Regression.Trainers.Sdca(labelColumnName: "Label", featureColumnName: "Features");
 
