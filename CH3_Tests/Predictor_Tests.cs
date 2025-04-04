@@ -36,8 +36,8 @@ namespace Predictor_Tests
         // ------------------------------------------------
 
         [TestMethod]
-        [DataRow(@".\Data\sampledata.json")]
-        public void Method_Class(string input)
+        [DataRow(@".\Data\sampledata.json", 28f)]
+        public void Predict_Predictor(string input, double expected)
         {
             // -------
             // Arrange
@@ -49,8 +49,15 @@ namespace Predictor_Tests
 
             var resp = sut.Predict(input);
 
+            // ---
+            // Log
+
+            Console.WriteLine($"Predicted duration in months: {resp.DurationInMonths}");
+
             // ------
             // Assert
+
+            Assert.IsTrue(resp.DurationInMonths >= expected);
         }
     }
 }

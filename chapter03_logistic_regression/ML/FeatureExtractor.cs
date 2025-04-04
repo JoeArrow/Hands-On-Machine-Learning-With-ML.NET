@@ -1,20 +1,19 @@
 ﻿using System;
 using System.IO;
-using System.Text;
 
-using chapter03_logistic_regression.Common;
-using chapter03_logistic_regression.ML.Base;
+using logistic_regression.Common;
+using logistic_regression.ML.Base;
 
-namespace chapter03_logistic_regression.ML
+namespace logistic_regression.ML
 {
     public class FeatureExtractor : BaseML
     {
         public void Extract(string folderPath)
         {
             var files = Directory.GetFiles(folderPath);
+            var path = Path.Combine(AppContext.BaseDirectory, Constants.DATA_PATH,Constants.SAMPLE_DATA);
 
-            using (var streamWriter =
-                new StreamWriter(Path.Combine(AppContext.BaseDirectory, $"../../../Data/{Constants.SAMPLE_DATA}")))
+            using(var streamWriter = new StreamWriter(path))
             {
                 foreach (var file in files)
                 {

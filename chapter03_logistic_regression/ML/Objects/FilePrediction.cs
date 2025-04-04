@@ -1,6 +1,6 @@
 ﻿using Microsoft.ML.Data;
 
-namespace chapter03_logistic_regression.ML.Objects
+namespace logistic_regression.ML.Objects
 {
     public class FilePrediction
     {

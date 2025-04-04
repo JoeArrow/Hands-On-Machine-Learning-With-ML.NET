@@ -770,7 +770,10 @@
           "Newtonsoft.Json": "13.0.3"
         },
         "runtime": {
-          "chapter03.dll": {}
+          "chapter03.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions/14.0.0.0": {

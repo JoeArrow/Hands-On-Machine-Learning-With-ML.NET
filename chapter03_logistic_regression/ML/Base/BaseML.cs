@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 
-using chapter03_logistic_regression.Common;
+using logistic_regression.Common;
 
 using Microsoft.ML;
 
-namespace chapter03_logistic_regression.ML.Base
+namespace logistic_regression.ML.Base
 {
     public class BaseML
     {
@@ -17,6 +17,8 @@ namespace chapter03_logistic_regression.ML.Base
         protected readonly MLContext MlContext;
 
         private static Regex _stringRex;
+
+        // ------------------------------------------------
 
         protected BaseML()
         {
@@ -27,6 +29,8 @@ namespace chapter03_logistic_regression.ML.Base
             _stringRex = new Regex(@"[ -~\t]{8,}", RegexOptions.Compiled);
         }
 
+        // ------------------------------------------------
+
         protected string GetStrings(byte[] data)
         {
             var stringLines = new StringBuilder();
@@ -36,7 +40,9 @@ namespace chapter03_logistic_regression.ML.Base
                 return stringLines.ToString();
             }
 
-            using (var ms = new MemoryStream(data, false))
+            // ------------------------------------------------
+
+            using(var ms = new MemoryStream(data, false))
             {
                 using (var streamReader = new StreamReader(ms, Encoding.GetEncoding(1252), false, 2048, false))
                 {

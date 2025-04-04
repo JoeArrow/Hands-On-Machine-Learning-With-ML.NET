@@ -1,12 +1,12 @@
 ﻿using System;
 using System.IO;
 
-using chapter03_logistic_regression.ML.Base;
-using chapter03_logistic_regression.ML.Objects;
+using logistic_regression.ML.Base;
+using logistic_regression.ML.Objects;
 
 using Microsoft.ML;
 
-namespace chapter03_logistic_regression.ML
+namespace logistic_regression.ML
 {
     public class Trainer : BaseML
     {
