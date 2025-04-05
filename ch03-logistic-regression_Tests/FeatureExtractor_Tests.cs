@@ -26,12 +26,13 @@ namespace FeatureExtractor_Tests
 
         [TestMethod]
         [DataRow(@"..\..\..\Data", @"Data\sampledata.csv")]
-        public void Extract_FeatureExtractor(string folder, string dataFile)
+        public void Extract_FeatureExtractor(string folder, string outputFile)
         {
             // -------
             // Arrange
 
             var sut = new FeatureExtractor();
+            File.Delete(Path.Combine(AppContext.BaseDirectory, outputFile));
 
             // ---
             // Act
@@ -41,12 +42,7 @@ namespace FeatureExtractor_Tests
             // ------
             // Assert
 
-            Assert.IsTrue(File.Exists(Path.Combine(AppContext.BaseDirectory, dataFile)));
-
-            // -------
-            // Cleanup
-
-            File.Delete(Path.Combine(AppContext.BaseDirectory, dataFile));
+            Assert.IsTrue(File.Exists(Path.Combine(AppContext.BaseDirectory, outputFile)));
         }
     }
 }

@@ -15,7 +15,6 @@ namespace logistic_regression.ML
             if (!File.Exists(trainingFileName))
             {
                 Console.WriteLine($"Failed to find training data file ({trainingFileName}");
-
                 return;
             }
 
