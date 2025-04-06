@@ -23,7 +23,7 @@ namespace logistic_regression.ML
                 }
             }
 
-            Console.WriteLine($"Extracted {files.Length} to {Constants.SAMPLE_DATA}");
+            Console.WriteLine($"{files.Length} files extracted to {path}");
         }
     }
 }

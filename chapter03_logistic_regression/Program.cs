@@ -8,14 +8,14 @@ namespace logistic_regression
     {
         static void Main(string[] args)
         {
+            var cr = Environment.NewLine;
+
             if (args.Length != 2)
             {
-                Console.WriteLine($"Invalid arguments passed in, exiting.{Environment.NewLine}{Environment.NewLine}Usage:{Environment.NewLine}" +
-                                  $"predict <path to input file>{Environment.NewLine}" +
-                                  $"or {Environment.NewLine}" +
-                                  $"train <path to training data file>{Environment.NewLine}" + 
-                                  $"or {Environment.NewLine}" +
-                                  $"extract <path to folder>{Environment.NewLine}");
+                Console.WriteLine($"Invalid arguments, Exiting App.{cr}{cr}Usage:{cr}" +
+                                  $"predict <path to input file>{cr}or {cr}" +
+                                  $"train <path to training data file>{cr}or {cr}" +
+                                  $"extract <path to folder>{cr}");
                 return;
             }
 

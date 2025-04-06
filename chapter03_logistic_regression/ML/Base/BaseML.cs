@@ -12,11 +12,12 @@ namespace logistic_regression.ML.Base
 {
     public class BaseML
     {
-        protected static string ModelPath => Path.Combine(AppContext.BaseDirectory, Constants.MODEL_FILENAME);
+        private static Regex _stringRex;
 
         protected readonly MLContext MlContext;
+        protected readonly string cr = Environment.NewLine;
 
-        private static Regex _stringRex;
+        protected static string ModelPath => Path.Combine(AppContext.BaseDirectory, Constants.MODEL_FILENAME);
 
         // ------------------------------------------------
 
@@ -40,8 +41,6 @@ namespace logistic_regression.ML.Base
                 return stringLines.ToString();
             }
 
-            // ------------------------------------------------
-
             using(var ms = new MemoryStream(data, false))
             {
                 using (var streamReader = new StreamReader(ms, Encoding.GetEncoding(1252), false, 2048, false))
@@ -58,7 +57,8 @@ namespace logistic_regression.ML.Base
                         line = line.Replace("^", "").Replace(")", "").Replace("-", "");
 
                         stringLines.Append(string.Join(string.Empty,
-                            _stringRex.Matches(line).Where(a => !string.IsNullOrEmpty(a.Value) && !string.IsNullOrWhiteSpace(a.Value)).ToList()));
+                            _stringRex.Matches(line).Where(a => !string.IsNullOrEmpty(a.Value) && 
+                                                                !string.IsNullOrWhiteSpace(a.Value)).ToList()));
                     }
                 }
             }

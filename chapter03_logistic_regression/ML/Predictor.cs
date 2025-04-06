@@ -1,5 +1,4 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 
 using logistic_regression.ML.Base;
 using logistic_regression.ML.Objects;
@@ -10,20 +9,20 @@ namespace logistic_regression.ML
 {
     public class Predictor : BaseML
     {
-        public void Predict(string inputDataFile)
+        public FilePrediction Predict(string inputDataFile)
         {
+            var retVal = new FilePrediction();
+
             if (!File.Exists(ModelPath))
             {
-                Console.WriteLine($"Failed to find model at {ModelPath}");
-
-                return;
+                //Console.WriteLine($"Failed to find model at {ModelPath}");
+                return retVal;
             }
 
             if (!File.Exists(inputDataFile))
             {
-                Console.WriteLine($"Failed to find input data at {inputDataFile}");
-
-                return;
+                //Console.WriteLine($"Failed to find input data at {inputDataFile}");
+                return retVal;
             }
 
             ITransformer mlModel;
@@ -35,20 +34,18 @@ namespace logistic_regression.ML
 
             if (mlModel == null)
             {
-                Console.WriteLine("Failed to load model");
-
-                return;
+                //Console.WriteLine("Failed to load model");
+                return retVal;
             }
 
             var predictionEngine = MlContext.Model.CreatePredictionEngine<FileInput, FilePrediction>(mlModel);
 
-            var prediction = predictionEngine.Predict(new FileInput
-            {
-                Strings = GetStrings(File.ReadAllBytes(inputDataFile))
-            });
+            retVal = predictionEngine.Predict(new FileInput { Strings = GetStrings(File.ReadAllBytes(inputDataFile)) });
 
-            Console.WriteLine($"Based on the file ({inputDataFile}) the file is classified as {(prediction.IsMalicious ? "malicious" : "benign")}" + 
-                              $" at a confidence level of {prediction.Probability:P0}");
+            //Console.WriteLine($"Based on the file ({inputDataFile}) the file is classified as {(retVal.IsMalicious ? "malicious" : "benign")}" + 
+            //                  $" at a confidence level of {retVal.Probability:P0}");
+
+            return retVal;
         }
     }
 }
